@@ -1,0 +1,35 @@
+{
+  "name": "Github Stars",
+  "manifest_version": 2,
+  "version": "1.0.0",
+  "description": "Gets information from stars in Github.",
+  "icons": {
+    "128": "icon_128.png"
+  },
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://github.com/*",
+        "https://github.com/*"
+      ],
+      "js": [
+        "js/stars.js"
+      ]
+    }
+  ],
+  "options_ui": {
+    "page": "options/index.html",
+    "chrome_style": true
+  },
+  "options_page": "options/index.html",
+  "permissions": [
+    "contentSettings",
+    "storage",
+    "tabs"
+  ],
+  "minimum_chrome_version": "40.0"
+}

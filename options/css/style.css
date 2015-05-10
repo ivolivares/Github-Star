@@ -1,0 +1,183 @@
+@charset 'utf-8';
+@import 'widgets.css';
+@import 'chrome_shared.css';
+@import 'overlay.css';
+
+/* Copyright (c) 2012 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+body.github-stars {
+  margin: 20px 0px;
+  color: rgb(48, 57, 66);
+}
+
+html[dir='rtl'] body.github-stars {
+  /* Enable vertical scrollbar at all times in RTL to avoid visual glitches when
+   * showing sub-pages that vertically overflow. */
+  overflow-y: scroll;
+}
+
+/* TODO(dbeam): Remove .page class from overlays in settings so the junk below
+ * isn't necessary. */
+body.github-stars #extension-settings.page,
+body.github-stars #mainview-content .page,
+body.github-stars .subpage-sheet-container .page,
+body.github-stars > .page {
+  -webkit-margin-end: 24px;
+  min-width: 576px;
+  padding-bottom: 20px;
+  padding-top: 55px;
+}
+
+body.github-stars header {
+  background-image: -webkit-linear-gradient(white,
+                                            white 40%,
+                                            rgba(255, 255, 255, 0.92));
+  left: 155px;
+  /* <section>s in options currently amount to 638px total, broken up into
+   * 600px max-width + 18px -webkit-padding-start + 20px -webkit-margin-end
+   * so we mirror this value here so the headers match width and horizontal
+   * alignment when scrolling sideways. */
+  max-width: 738px;
+  min-width: 600px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  /* list.css sets a z-index of up to 2, this is set to 3 to ensure that the
+   * header is in front of the selected list item. */
+  z-index: 3;
+}
+
+html[dir='rtl'] body.github-stars header {
+  left: 0;
+  right: 155px;
+}
+
+body.github-stars header > .search-field-container,
+body.github-stars header > .header-extras,
+body.github-stars header > button {
+  position: absolute;
+  right: 20px;
+  top: 21px;
+}
+
+html[dir='rtl'] body.github-stars header > .search-field-container,
+html[dir='rtl'] body.github-stars header > .header-extras,
+html[dir='rtl'] body.github-stars header > button {
+  left: 20px;
+  right: auto;
+}
+
+body.github-stars header input[type='search'],
+body.github-stars header input[type='text'],
+body.github-stars header button {
+  margin: 0;
+}
+
+body.github-stars header > h1 {
+  margin: 0;
+  padding: 21px 0 13px;
+}
+
+/* Create a border under the h1 (but before anything that gets appended
+ * to the end of the header). */
+body.github-stars header > h1::after {
+  -webkit-margin-end: 20px;
+  background-color: #eee;
+  content: ' ';
+  display: block;
+  height: 1px;
+  position: relative;
+  top: 13px;
+}
+
+body.github-stars footer {
+  border-top: 1px solid #eee;
+  margin-top: 16px;
+  /* min-width and max-width should match the header */
+  max-width: 638px;
+  min-width: 600px;
+  padding: 8px 0;
+}
+
+/* Sections are used in options pages, help page and history page. This defines
+ * the section metrics to match the header metrics above. */
+body.github-stars section {
+  -webkit-padding-start: 18px;
+  margin-bottom: 24px;
+  margin-top: 8px;
+  max-width: 600px;
+}
+
+body.github-stars section:last-of-type {
+  margin-bottom: 0;
+}
+
+body.github-stars section > h3 {
+  -webkit-margin-start: -18px;
+}
+
+body.github-stars section > div:only-of-type {
+  -webkit-box-flex: 1;
+}
+
+body.github-stars div.message{
+  background: #F8FF8B;
+  padding: 5px;
+  margin-top: -20px;
+  -webkit-padding-start: 18px;
+  margin-bottom: 20px;
+}
+body.github-stars nav {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 155px;
+}
+body.github-stars nav ul{
+  list-style-type: none;
+  padding: 0;
+}
+body.github-stars nav ul li{
+  -webkit-border-start: 6px solid transparent;
+  -webkit-padding-start: 18px;
+  -webkit-user-select: none;
+  -webkit-border-start-color: rgb(78, 87, 100);
+  cursor: default;
+  pointer-events: none;
+  line-height: 1.417em;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+body.github-stars nav h1{
+  margin: 0px 0px 30px 0px;
+  -webkit-padding-start: 18px;
+  color: rgb(92, 97, 102);
+  margin-bottom: 1em;
+  margin-top: 21px;
+  font-size: 1.5em;
+}
+@media (max-width: 400px) {
+  nav{display: none;}
+  body.github-stars div.content h1{display:none;}
+}
+@media (min-width: 500px) {
+  body.github-stars div.content{
+    position: absolute;
+    left: 200px;
+    min-width: 600px;
+  }
+  body.github-stars div.content h1{
+    margin-bottom: 40px;
+  }
+  body.github-stars div.content h1::after{
+    -webkit-margin-end: 20px;
+    background-color: #eee;
+    content: ' ';
+    display: block;
+    height: 1px;
+    position: relative;
+    top: 13px;
+  }
+}

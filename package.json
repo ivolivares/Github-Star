@@ -1,12 +1,25 @@
 {
   "name": "github-stars",
+  "description": "A chrome extension to get information from stars in Github.",
   "version": "1.0.10",
+  "author": "Iván Olivares R. <hola@ivolivares.cl>",
   "private": true,
   "dependencies": {
     "coffee-script": "1.8.0",
     "minifier": "0.6.2",
     "clean-css": "3.0.4"
   },
+  "repository":{
+    "type": "git",
+     "url": "git://github.com/ivolivares/Github-Stars"
+  },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Iván Olivares R.",
+      "email": "hola@ivolivares.cl"
+    }
+  ],
   "scripts": {
     "release": "npm install --unsafe-perm; npm run compile-coffee-stars; npm run compile-coffee-background; npm run compile-coffee-options; npm run minify-stars-js; npm run minify-background-js;  npm run minify-options-js; npm run minify-css;",
     "compile-coffee-stars": "./node_modules/coffee-script/bin/coffee --no-header -cbo ./release/js/ ./source/coffee/stars.coffee",

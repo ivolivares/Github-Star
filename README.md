@@ -7,6 +7,8 @@ In the repo's base path simply run:
 
 ```sh
 $ npm run release
+# or
+$ sudo sh ./release.sh
 ```
 
 This will compile and compress the required CoffeeScript and CSS files under `./source` to the `./release` directory.

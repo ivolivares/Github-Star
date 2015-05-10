@@ -1,0 +1,20 @@
+{
+  "name": "github-stars",
+  "version": "1.0.10",
+  "private": true,
+  "dependencies": {
+    "coffee-script": "1.8.0",
+    "minifier": "0.6.2",
+    "clean-css": "3.0.4"
+  },
+  "scripts": {
+    "release": "npm install --unsafe-perm; npm run compile-coffee-stars; npm run compile-coffee-background; npm run compile-coffee-options; npm run minify-stars-js; npm run minify-background-js;  npm run minify-options-js; npm run minify-css;",
+    "compile-coffee-stars": "./node_modules/coffee-script/bin/coffee --no-header -cbo ./release/js/ ./source/coffee/stars.coffee",
+    "compile-coffee-background": "./node_modules/coffee-script/bin/coffee --no-header -cbo ./release/js/ ./source/coffee/background.coffee",
+    "compile-coffee-options": "./node_modules/coffee-script/bin/coffee --no-header -cbo ./release/options/js/ ./source/coffee/options.coffee",
+    "minify-css": "./node_modules/clean-css/bin/cleancss -o ./release/options/css/style.css ./source/css/*.css",
+    "minify-stars-js": "./node_modules/minifier/index.js --output ./release/js/stars.js ./release/js/stars.js",
+    "minify-background-js": "./node_modules/minifier/index.js --output ./release/js/background.js ./release/js/background.js",
+    "minify-options-js": "./node_modules/minifier/index.js --output ./release/options/js/options.js ./release/options/js/options.js"
+  }
+}

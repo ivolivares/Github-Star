@@ -1,7 +1,7 @@
 {
   "name": "Github Stars",
   "manifest_version": 2,
-  "version": "1.0.0",
+  "version": "1.0.10",
   "description": "Gets information from stars in Github.",
   "icons": {
     "128": "icon_128.png"
@@ -21,10 +21,6 @@
       ]
     }
   ],
-  "options_ui": {
-    "page": "options/index.html",
-    "chrome_style": true
-  },
   "options_page": "options/index.html",
   "permissions": [
     "contentSettings",

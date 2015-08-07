@@ -17,6 +17,4 @@ You must have npm (node.js's package manager) installed, which can be found in h
 
 ## Ownership
 
-Please remember this is a **private** project.
-
 > :heart: @ivolivares
